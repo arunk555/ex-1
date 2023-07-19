@@ -3,6 +3,7 @@ const express = require("express");
 const ErrorHandler = require("./middlewares/ErrorHandler");
 const logger = require("./utills/logger");
 const morganMiddleware = require("./middlewares/morgan.middleware");
+const connectmongodb = require("./utills/connectmongodb");
 const app = express();
 const PORT = 4000;
 /*  Morgan http middleware*/
@@ -39,5 +40,6 @@ app.use(ErrorHandler);
 
 
 app.listen(PORT, function(){
+  connectmongodb();
   console.log(`Express server listen to the port ${PORT}`);
 });
