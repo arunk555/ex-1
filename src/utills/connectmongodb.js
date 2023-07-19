@@ -9,9 +9,11 @@ const connectmongodb=async ()=>{
             useUnifiedTopology:true
         });
         console.log("Successfully connected to database");
+        logger.info("Successfully connected to database");
     }catch(error){ 
         console.log("database connection failed. exiting now...");
         console.error(error);
+        logger.error(error);
         process.exit(1);
     }
 }
